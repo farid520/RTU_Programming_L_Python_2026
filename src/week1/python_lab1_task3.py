@@ -32,12 +32,21 @@ Examples (these are also used to check your work):
 
 def analyze_sentence(text: str) -> tuple[int, int, bool]:
     """Return (length, word count, contains 'python') for the given text."""
-    # TODO: implement function logic
-    raise NotImplementedError("analyze_sentence() is not implemented yet")
+    # The length is taken from the original text, so spaces are counted
+    length = len(text)
+    # split() with no argument cuts on any whitespace and skips empty pieces,
+    # so extra spaces at the start, middle or end do not create fake words
+    words = text.split()
+    # find() returns -1 when the substring is missing; lower() ignores case
+    found = text.lower().find("python") != -1
+    return length, len(words), found
 
 
 if __name__ == "__main__":
     # Keep all input() calls inside this block, otherwise the autograder
     # cannot import your file.
-    # TODO: read sentence from input, call function, and print results
-    pass
+    line = input("Enter a sentence: ")
+    length, word_total, has_python = analyze_sentence(line)
+    print("Characters: {}".format(length))
+    print("Words: {}".format(word_total))
+    print("Contains 'Python': {}".format(has_python))

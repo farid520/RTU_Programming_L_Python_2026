@@ -28,12 +28,16 @@ Examples (these are also used to check your work):
 
 def greet_user(name: str) -> str:
     """Return a greeting message after cleaning and capitalizing the name."""
-    # TODO: implement cleaning, the empty-name case, and formatting
-    raise NotImplementedError("greet_user() is not implemented yet")
+    # An empty string counts as False in Python, so "or" picks "Stranger"
+    # whenever nothing is left after strip() (empty or only spaces)
+    cleaned = name.strip() or "Stranger"
+    # capitalize() makes the first letter upper case and the rest lower case
+    return "Hello, " + cleaned.capitalize() + "! Welcome to Python!"
 
 
 if __name__ == "__main__":
     # Keep all input() calls inside this block, otherwise the autograder
     # cannot import your file.
-    # TODO: read name from input and print greeting
-    pass
+    typed = input("Enter your name: ")
+    message = greet_user(typed)
+    print(message)
