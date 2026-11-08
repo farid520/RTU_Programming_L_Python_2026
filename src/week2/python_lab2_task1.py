@@ -1,3 +1,4 @@
+
 """
 Lab 2.1 – Simple Datasets and Aggregates
 ----------------------------------------
@@ -54,7 +55,7 @@ Examples (these are also used to check your work):
 def average(values: list[float]) -> float:
     """Return the average of values, or 0.0 for an empty list."""
     # TODO: implement
-    if not values:
+    if len(values) == 0:
         return 0.0
     return sum(values) / len(values)
 
@@ -62,7 +63,7 @@ def average(values: list[float]) -> float:
 def largest_city(populations: dict[str, int]) -> tuple[str, int]:
     """Return (city, population) for the city with the largest population."""
     # TODO: implement
-    if not populations:
+    if len(populations) == 0:
         return ("", 0)
     city = max(populations, key=populations.get)
     return (city, populations[city])
@@ -71,7 +72,7 @@ def largest_city(populations: dict[str, int]) -> tuple[str, int]:
 def smallest_city(populations: dict[str, int]) -> tuple[str, int]:
     """Return (city, population) for the city with the smallest population."""
     # TODO: implement
-    if not populations:
+    if len(populations) == 0:
         return ("", 0)
     city = min(populations, key=populations.get)
     return (city, populations[city])
@@ -88,13 +89,13 @@ if __name__ == "__main__":
     # autograder cannot import your file.
 
     # TODO: Create your own datasets - up to you to fill in the data
-    temperatures = [3.5, 5.0, 4.2, 6.1, 2.8, 4.7, 5.3]
+    temperatures = [4.5, 6.0, 3.5, 7.0, 5.5, 2.0, 8.0]
     city_population = {
-        "Riga": 600000,
-        "Daugavpils": 79000,
-        "Liepaja": 68000,
+        "Riga": 605000,
+        "Daugavpils": 78000,
+        "Liepaja": 67000,
         "Jelgava": 55000,
-        "Valmiera": 24000
+        "Valmiera": 23000
     }
 
     # TODO: call the functions above and print the results
